@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: cornflowerblue;
+        }
+
+        h1{
+            font-size: 65px;
+        }
+
+        #number{
+            font-size: 60px;
+        }
+
+        button{
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        #decrease, #increase{
+            padding: 4px 12px;
+            font-weight: bold;
+            color: whitesmoke;
+        }
+
+        #decrease{
+            background-color: red;
+        }
+
+        #increase{
+            background-color: green;
+        }
+
+        #reset{
+            padding: 4px 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="counter">
+        <h1>Counter</h1>
+        <p id="number">0</p>
+        <button id="decrease" onclick="decrement()">-</button>
+        <button id="reset" onclick="reset()">Reset</button>
+        <button id="increase" onclick="increment()">+</button>
+    </div>
+
+    <script>
+        var dec = document.getElementById("decrease");
+        var inc = document.getElementById("increase");
+        var num = document.getElementById("number");
+
+        let value = 0;
+        dec.disabled = true;
+        dec.style.backgroundColor = "#ff6666";
+        dec.style.cursor = "no-drop";
+        function decrement()
+        {
+            if(value > 0)
+            {
+                value = value - 1;
+                num.innerHTML = value;
+                dec.disabled = false;
+                dec.style.backgroundColor = "red";
+                dec.style.cursor = "pointer";
+            }
+
+            if(value === 0)
+            {
+                value = 0;
+                num.innerHTML = value;
+                dec.disabled = true;
+                dec.style.backgroundColor = "#ff6666";
+                dec.style.cursor = "no-drop";
+            }
+        }
+
+        function increment()
+        {
+            value = value + 1;
+            num.innerHTML = value;
+            dec.disabled = false;
+            dec.style.backgroundColor = "red";
+            dec.style.cursor = "pointer";
+        }
+
+        function reset()
+        {
+            value = 0;
+            num.innerHTML = value;
+            dec.disabled = true;
+            dec.style.backgroundColor = "#ff6666";
+            dec.style.cursor = "no-drop";
+        }
+    </script>
+    
+</body>
+</html>
